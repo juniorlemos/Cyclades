@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -18,8 +19,10 @@ public class Main {
 	private static Deus hades = new Deus("Hades");
 	private  static int hadesCot=0;
 	private static ArrayList<String> semi = new ArrayList();
-	
-	
+	private static ArrayList<String> bpSemi = new ArrayList();
+	private static boolean entradaHades =true;
+	private static List<Deus> aux = new ArrayList();			    
+
 	public static void main(String[] args) {
 
 		
@@ -53,7 +56,7 @@ public class Main {
 			expTitan=true;
 			
 			
-			
+			embaralhar(deuses);
 			int jogadores=6;
 	     
 			//System.out.println("Escolha o numero de jogadores");
@@ -100,9 +103,362 @@ public class Main {
 	    	 
 			break;
 	     case 5:
-				 
-	    	 
+	    		
+		     
+             embaralharSemi(semi);
+             
+             if (hadesCot >9 ) {
+            	             	 
+            	 aux.add(deuses.get(deuses.size()-1));
+            	 aux.add(deuses.get(deuses.size()-2));
+            	 deuses.remove(deuses.get(deuses.size()-1));
+            	 deuses.remove(deuses.get(deuses.size()-1));
+            	 hadesCot=0;
+            	 
+            	 
+	    		 
+            	 
+            	 for (int i =0 ; i<deuses.size(); i++) {
+    	    		 aux.add(deuses.get(i));
+    	    		  
+    	    	 }  
+            	
+            	
+            	 
+            	 
+            	 
+            	 for (int i=deuses.size() ; i>0;i--) {
+	    			 deuses.remove(i-1);
+	    			 
+	    		 }
+            		 
+            	 
+            	 for (int i =4 ; i>-1; i--) {
+    	    		 deuses.add(aux.get(i));
+    	    		  
+    	    	 }
+            	 
+            	 for (int i=semi.size() ; i>0;i--) {
+	    			 semi.remove(i-1);
+	    			 
+	    		 }
+            	 
+            
+            	 for (int i=0; i<bpSemi.size();i++)
+        		 {
+        			 semi.add(bpSemi.get(i));
+        		 }
+
+            	
+            	
+            	 entradaHades=true;
+            	 
+            	for (int i =0 ; i<aux.size()-2; i++) {
+    	    	 System.out.println(aux.get(i).nome);
+    	    		  
+    	     } 
+            	System.out.println(hades.nome);
+            	System.out.println(apolo.nome);
+            	
+            	for (int i=deuses.size() ; i>0;i--) {
+	    			 deuses.remove(i-1);
+	    			 
+	    		 }
+           		 
+           	 
+           	 for (int i =4 ; i>-1; i--) {
+   	    		 deuses.add(aux.get(i));
+   	    		  
+   	    	 }
+           
+            	 for (int i=aux.size() ; i>0;i--) {
+        			 aux.remove(i-1);
+        			 
+        		 }
+            	 
+             }
+             
+             
+             
+             
+             else {
+            		
+            	  
+            	 
+             aux.add(deuses.get(deuses.size()-1));
+    		 deuses.remove(deuses.get(deuses.size()-1));
+    		 
+    		 if (entradaHades==false)
+    		 {
+             embaralhar(deuses);
+    		 }
+    		
+             for (int i =0 ; i<deuses.size(); i++) {
+	         aux.add(deuses.get(i));	 
+	    		  
+	    	 }
+             
+            
+                  if (entradaHades==true) {
+                	  entradaHades=false;  
+                	  
+                  aux.add(aux.get(0));
+                  aux.remove(0);
+                  
+                  }
+	    	
+                  
+                  
+             for (int i=deuses.size() ; i>0;i--) {
+	    			 deuses.remove(i-1);
+	    			 
+	    		 }
+	    		             
+             for (int i =0 ; i<aux.size(); i++) {
+	    		deuses.add(aux.get(i));
+	    		  
+	    	 } 
+             
+             
+             for (int i =0 ; i<deuses.size()-1; i++) {
+	    		 System.out.println(deuses.get(i).nome);
+	    		  
+	    	 } 
+                System.out.println(apolo.nome);    
+                System.out.println(semi.get(0));
+                semi.remove(0);
+                
+             for (int i=aux.size() ; i>0;i--) {
+    			 aux.remove(i-1);
+    			 
+    		 }
+          
+	    		  
+	    	 }
+             }
+	     
+	
 				break;
+				
+	  case 4:
+ 		
+		     
+          if (hadesCot >9 ) {
+         	           	 
+         	
+         	 aux.add(deuses.get(deuses.size()-1));
+         	 aux.add(deuses.get(deuses.size()-2));
+         	 deuses.remove(deuses.get(deuses.size()-1));
+         	 deuses.remove(deuses.get(deuses.size()-1));
+         	 hadesCot=0;
+         	  
+         	 for (int i =0 ; i<aux.size(); i++) {
+     	    	 System.out.println(aux.get(i).nome);
+     	    		  
+     	     } 
+         	 
+         	 embaralhar(deuses);
+         	  embaralhar(aux);
+         	 for (int i =0 ; i<aux.size(); i++) {
+ 	    		 deuses.add(aux.get(i));
+ 	    		  
+ 	    	 }  
+         	
+         	  
+         	 
+         	 for (int i=aux.size() ; i>0;i--) {
+     			 aux.remove(i-1);
+     			 
+     		 }
+         	
+         	 
+         	for (int i=semi.size() ; i>0;i--) {
+	    		    semi.remove(i-1);
+	    			 
+	    		 }
+         	 
+         
+         	 for (int i=0; i<bpSemi.size();i++)
+     		 {
+     			 semi.add(bpSemi.get(i));
+     		 }
+
+         	
+         	
+         	 entradaHades=true;
+         	 
+          
+         	System.out.println(hades.nome);
+         	System.out.println(apolo.nome);
+        
+        
+         	 
+          }
+          
+          
+          
+          
+          else {
+         		
+         	  
+	    	 	 
+         
+
+          if (entradaHades==true) {
+        	  entradaHades=false;  
+        	 for (int i =0 ; i<deuses.size()-2; i++) {
+	    		 System.out.println(deuses.get(i).nome);
+	    		  
+	    	 }
+        	System.out.println(apolo.nome);    
+         System.out.println(semi.get(0));
+         semi.remove(0);
+        	 
+          }
+	    	 
+          else {
+	    	 aux.add(deuses.get(deuses.size()-1));
+          aux.add(deuses.get(deuses.size()-2));
+          
+ 		 deuses.remove(deuses.get(deuses.size()-1));
+ 		 deuses.remove(deuses.get(deuses.size()-1));
+ 		 
+ 		
+ 		 
+ 		
+          embaralhar(deuses);
+ 		 
+ 		
+ 		 
+ 		 
+          for (int i =0 ; i<deuses.size(); i++) {
+	         aux.add(deuses.get(i));	 
+	    		  
+	    	 }
+          
+         
+	    	
+               
+               
+          for (int i=deuses.size() ; i>0;i--) {
+	    			 deuses.remove(i-1);
+	    			 
+	    		 }
+	    		             
+          for (int i =0 ; i<aux.size(); i++) {
+	    		deuses.add(aux.get(i));
+	    		  
+	    	 } 
+          
+          
+          for (int i =0 ; i<deuses.size()-2; i++) {
+	    		 System.out.println(deuses.get(i).nome);
+	    		  
+	    	 } 
+             System.out.println(apolo.nome);    
+             System.out.println(semi.get(0));
+             semi.remove(0);
+             
+          for (int i=aux.size() ; i>0;i--) {
+ 			 aux.remove(i-1);
+ 			 
+ 		 }
+       
+	    		  
+	    	 }
+          }
+	     }
+	 	
+	
+	}
+	
+
+	     
+
+		  
+         
+    	 
+			break;
+			
+			
+	  case 3:
+		  embaralharSemi(semi);
+          
+          if (hadesCot >9 ) {
+         	 
+         	 aux.add(deuses.get(1));
+         	 deuses.remove(deuses.get(1));
+         	 
+         	System.out.println(aux.get(0).nome);
+         	 
+         	System.out.println(hades.getNome());
+         	 
+         	System.out.println(apolo.nome);
+         	 hadesCot=0;
+        
+         	 
+         	 deuses.add(aux.get(0));
+         	 aux.remove(0);
+
+         	 embaralhar(aux);
+         	  for (int i=semi.size() ; i>0;i--) {
+	    		    semi.remove(i-1);
+	    			 
+	    		 }
+           	 
+           
+           	 for (int i=0; i<bpSemi.size();i++)
+       		 {
+       			 semi.add(bpSemi.get(i));
+       		 }
+         
+ 		 
+          aux.add(deuses.get(0));
+          aux.add(deuses.get(1));
+          deuses.remove(deuses.get(0));
+          deuses.remove(deuses.get(0));
+          
+ 		 for (int i =0 ; i<aux.size(); i++) {
+ 	         System.out.println("entrada "+aux.get(i).nome);
+ 	    		  
+ 	    	 }
+ 		     System.out.println(apolo.nome);
+ 		     System.out.println(apolo.nome);    
+              System.out.println(semi.get(0));
+              semi.remove(0);
+
+ 		 for (int i =0 ; i<aux.size(); i++) {
+ 	         deuses.add(aux.get(i));	 
+ 	    		  
+ 	    	 }
+ 		   
+          for (int i=aux.size() ; i>0;i--) {
+ 			 aux.remove(i-1);
+ 			 
+ 		 }
+          
+           if (reembaralhamento == true)
+           {
+         	  embaralhar(deuses);
+         	  reembaralhamento = false;
+           }
+         
+           else {
+           reembaralhamento = true;
+           }
+          
+          }
+          }
+               
+               
+          }
+
+
+			
+		  
+	         
+	    	 
+			break;		
 		default:
 			break;
 		}
@@ -111,7 +467,7 @@ public class Main {
 	      
 	   
 	   
-	}
+	
 	public static  ArrayList embaralharSemi(ArrayList deuses) {
 		Collections.shuffle(deuses);
 		dadoHades();
